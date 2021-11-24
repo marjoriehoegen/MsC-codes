@@ -41,18 +41,18 @@ for file in os.listdir(directory):
 		df = drop_first_column(df)
 
 		# Detection of alteration with PDFs
-		h_pdf = anomaly_pdf.test(df,t1=100,limite=0,nptos_anomalia=100)
+		h_pdf = anomaly_pdf.test(df,t1=100,limit=0,npts_anomaly=100)
 		# Detection of alteration with KLDs
-		h_kld = kld.test(df,janela=100,t1=100,nref=500,limite=3,nptos_anomalia=500)
+		h_kld = kld.test(df,window=100,t1=100,nref=500,limit=3,npts_anomaly=500)
 		# Detection of alteration with PCA
 		h_SPE, h_T2 = pca.test(
-			df,t1=100,n_pcs=2,n_harmonicas=135,limite_contrSPE=1000,limite_contrT2=50,
-			fmec=15,nptos_anomalia=100)
+			df,t1=100,n_pcs=2,n_variables=135,limit_contrSPE=1000,limit_contrT2=50,
+			npts_anomaly=100)
 		# Detection of alteration with SSA
 		h_D1, h_D2 = ssa.test(
 			df,L=50,N_base=100,N_teste=100,limite_D1=0.1,limite_D2=200,t1=100,
 			nptos_anomalia=100)
 		# Detection of alteration with energy analysis
-		h_energia = emd_energy.test(df,L=100,t1=100,limite_en=0.1,nptos_anomalia=100)
+		h_energy = emd_energy.test(df,L=100,t1=100,limit=0.1,npts_anomaly=100)
 		# # Detection of alteration with autoencoder
-		h_autoencoder = autoencoder.test_all(df,t=500,limite=10,nptos_anomalia=100)
+		h_autoencoder = autoencoder.test_all(df,t=500,limit=10,npts_anomaly=100)

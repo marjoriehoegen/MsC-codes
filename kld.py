@@ -1,7 +1,7 @@
 import numpy as np
 import scipy.stats as stats
 
-# Function for monitoring with maximum value Função para controle com valor máximo
+# Function for monitoring with maximum value
 def control_max(x,nref,limit):
 	anomalies = []
 
